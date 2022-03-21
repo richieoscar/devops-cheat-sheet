@@ -1,0 +1,54 @@
+UBUNTU LINUX CHEAT SHEET
+
+
+java -jar app.jar & (run app in detached mode(app doesnt stop when user logs out of server))
+
+ps aux | grep java (check for processes running in java)
+
+check active servers with internet connections
+
+#install netstat first
+
+netstat -lpnt (list active servers)
+
+ls -l (check permissions)
+
+CHANGE OWNERSHIP OF FILES TO DIFFERENT USER
+
+chown -R user:group filename
+
+Add user to group
+usermod -aG <groupName> <user>
+
+create user
+adduser username
+
+switch users 
+su - username
+
+install nodejs in jenkins container as root
+
+install curl
+
+curl -sL curl -sL https://deb.nodesource.com/setup_10.x | bash -
+
+ENABLE EXECUTION PERMISSION FOR LINUX USER
+
+chmod +x (filename)
+
+Enable Docker on Jenkins when running as container
+add the following volumes
+-v jenkins_home:/var/jenkins_home
+-v /var/run/docker.sock:/var/run/docker.sock
+-v $(which docker):/usr/bin/docker
+
+then bash into the jenkins container as root
+docker exec -u 0 -it (container name or id) bash
+
+ls -l /var/run/docker.sock
+
+chmod 666 /var/run/docker.sock
+
+this gives jenkins permission to execute docker commands
+
+
