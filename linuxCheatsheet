@@ -51,4 +51,8 @@ chmod 666 /var/run/docker.sock
 
 this gives jenkins permission to execute docker commands
 
+APPLICATION VERSION MAVEN COMMAND
+
+>mvn build-helper:parse-version versions:set -DnewVersion=\${parsedVersion.majorVersion}.\${parsedVersion.nextMinorVersion}.\${parsedVersion.incrementalVersion} versions:commit
+
 
